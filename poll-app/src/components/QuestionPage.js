@@ -1,6 +1,7 @@
 import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {connect} from "react-redux";
 import Navigation from "./Navigation";
+import {handleAddAnswer} from "../actions/questions";
 
 const withRouter = (Component) => {
     const ComponentWithRouterProp = (props) => {
@@ -14,7 +15,35 @@ const withRouter = (Component) => {
 };
 
 const QuestionPage = (props) => {
-    console.log(props)
+
+    const navigate = useNavigate();
+
+    const handleFirstVote = (e) => {
+        e.preventDefault();
+        const info = {
+            authedUser: props.authedUser,
+            qid: props.question.id,
+            answer: 'optionOne'
+        }
+
+        props.dispatch(handleAddAnswer(info));
+
+        navigate("/");
+    }
+
+        const handleSecondVote = (e) => {
+        e.preventDefault();
+        const info = {
+            authedUser: props.authedUser,
+            qid: props.question.id,
+            answer: 'optionTwo'
+        }
+
+        props.dispatch(handleAddAnswer(info));
+
+        navigate("/");
+    }
+
     return (
         <div>
             <Navigation/>
@@ -22,10 +51,15 @@ const QuestionPage = (props) => {
             <div>{props.question.author}</div>
             <div>
                 <div>{props.question.optionOne.text}</div>
-                <div>Votes {props.question.optionOne.votes.length}</div>
+                <button onClick={handleFirstVote}>Click</button>
+                {/*<div>Votes {props.question.optionOne.votes.length}</div>*/}
             </div>
-            <div>{props.question.optionTwo.text}</div>
-            <div>Votes {props.question.optionTwo.votes.length}</div>
+            <div>
+                <div>{props.question.optionTwo.text}</div>
+                <button onClick={handleSecondVote}>Click</button>
+            </div>
+
+            {/*<div>Votes {props.question.optionTwo.votes.length}</div>*/}
 
         </div>
 
@@ -36,7 +70,8 @@ const mapStateToProps = ({authedUser, questions, users}, props) => {
     const {question_id} = props.router.params;
 
     return {
-        question: questions[question_id]
+        question: questions[question_id],
+        authedUser,
     }
 }
 

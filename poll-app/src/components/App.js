@@ -2,7 +2,7 @@ import './App.css';
 import {Route, Routes} from "react-router-dom"
 import Login from "./Login";
 import Dashboard from "./Dashboard";
-import AddPoll from "./AddPoll";
+import NewQuestion from "./NewQuestion";
 import Leaderboard from "./Leaderboard";
 import QuestionPage from "./QuestionPage";
 import {useEffect} from "react";
@@ -32,7 +32,7 @@ function App(props) {
                         />
                         <Route exact
                                path="/add"
-                               element={<AddPoll/>}
+                               element={<NewQuestion/>}
                         />
                         <Route exact
                                path="/leaderboard"

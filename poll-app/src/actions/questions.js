@@ -1,25 +1,37 @@
-import {saveQuestion} from "../utils/api";
+import {saveQuestion, saveQuestionAnswer} from "../utils/api";
 import {hideLoading, showLoading} from "react-redux-loading-bar";
+import {_saveQuestion} from "../utils/_DATA";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
 export const ADD_ANSWER = "ADD_ANSWER";
 
-export function handleAddQuestions(info) {
-    return (dispatch, getState) => {
-        const {authedUser} = getState();
+export function handleAddQuestion(info) {
+    return (dispatch) => {
+        // const {authedUser} = getState();
 
         dispatch(showLoading());
 
-        return saveQuestion({
-            optionOneText: info.optionOneText,
-            optionTwoText: info.optionTwoText,
-            author: authedUser,
+        console.log(info)
 
-        })
-            .then((tweet) => dispatch(saveQuestion(info)))
+        return saveQuestion(info)
+            .then((question) => dispatch(addQuestion(question)))
             .then(() => dispatch(hideLoading()));
     };
+}
+
+export function handleAddAnswer(info){
+    console.log(info)
+    return (dispatch) => {
+        // const {authedUser} = getState();
+        dispatch(showLoading());
+        console.log(info)
+
+        return saveQuestionAnswer(info)
+            .then((answer) => dispatch(addAnswer(info)))
+            .then(() => dispatch(hideLoading()));
+    };
+
 }
 
 export function receiveQuestions(questions) {
@@ -29,16 +41,16 @@ export function receiveQuestions(questions) {
     };
 }
 
-export function addQuestions(question) {
+export function addQuestion(question) {
     return {
         type: ADD_QUESTION,
         question,
     };
 }
 
-export function addAnswer(question) {
+export function addAnswer(answer) {
     return {
         type: ADD_ANSWER,
-        question,
+        answer,
     };
 }
