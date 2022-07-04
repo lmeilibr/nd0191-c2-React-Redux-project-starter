@@ -1,6 +1,11 @@
-function AddPoll(){
+import Navigation from "./Navigation";
+
+function AddPoll() {
     return (
-        <h1>Add Poll</h1>
+        <>
+            <Navigation/>
+            <h1>Add Poll</h1>
+        </>
     )
 }
 

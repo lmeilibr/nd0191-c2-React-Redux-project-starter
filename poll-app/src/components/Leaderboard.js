@@ -1,6 +1,11 @@
-function Leaderboard(){
+import Navigation from "./Navigation";
+
+function Leaderboard() {
     return (
-        <h1>Leaderboard</h1>
+        <>
+            <Navigation/>
+            <h1>Leaderboard</h1>
+        </>
     )
 }
 
