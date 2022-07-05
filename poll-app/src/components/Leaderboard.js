@@ -8,13 +8,15 @@ const Leaderboard = (props) => {
             <h1>Leaderboard</h1>
             <table>
                 <thead>
-                <th>Users</th>
-                <th>Answered</th>
-                <th>Created</th>
+                <tr>
+                    <th>Users</th>
+                    <th>Answered</th>
+                    <th>Created</th>
+                </tr>
                 </thead>
                 <tbody>
                 {props.usersKeys.map((user) => (
-                    <tr key={user.id}>
+                    <tr key={props.users[user].name}>
                         <td>{props.users[user].name}</td>
                         <td>{Object.keys(props.users[user].answers).length}</td>
                         <td>{props.users[user].questions.length}</td>

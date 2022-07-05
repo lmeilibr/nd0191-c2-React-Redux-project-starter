@@ -1,6 +1,5 @@
 import {saveQuestion, saveQuestionAnswer} from "../utils/api";
 import {hideLoading, showLoading} from "react-redux-loading-bar";
-import {_saveQuestion} from "../utils/_DATA";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
@@ -8,7 +7,6 @@ export const ADD_ANSWER = "ADD_ANSWER";
 
 export function handleAddQuestion(info) {
     return (dispatch) => {
-        // const {authedUser} = getState();
 
         dispatch(showLoading());
 
@@ -23,7 +21,6 @@ export function handleAddQuestion(info) {
 export function handleAddAnswer(info){
     console.log(info)
     return (dispatch) => {
-        // const {authedUser} = getState();
         dispatch(showLoading());
         console.log(info)
 

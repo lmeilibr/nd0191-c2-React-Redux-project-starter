@@ -2,6 +2,7 @@ import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {connect} from "react-redux";
 import Navigation from "./Navigation";
 import {handleAddAnswer} from "../actions/questions";
+import {addUserAnswer} from "../actions/users";
 
 const withRouter = (Component) => {
     const ComponentWithRouterProp = (props) => {
@@ -27,6 +28,7 @@ const QuestionPage = (props) => {
         }
 
         props.dispatch(handleAddAnswer(info));
+        props.dispatch(addUserAnswer(info));
 
         navigate("/");
     }
@@ -40,6 +42,7 @@ const QuestionPage = (props) => {
         }
 
         props.dispatch(handleAddAnswer(info));
+        props.dispatch(addUserAnswer(info));
 
         navigate("/");
     }
@@ -52,17 +55,12 @@ const QuestionPage = (props) => {
             <div>
                 <div>{props.question.optionOne.text}</div>
                 <button onClick={handleFirstVote}>Click</button>
-                {/*<div>Votes {props.question.optionOne.votes.length}</div>*/}
             </div>
             <div>
                 <div>{props.question.optionTwo.text}</div>
                 <button onClick={handleSecondVote}>Click</button>
             </div>
-
-            {/*<div>Votes {props.question.optionTwo.votes.length}</div>*/}
-
         </div>
-
     )
 }
 
