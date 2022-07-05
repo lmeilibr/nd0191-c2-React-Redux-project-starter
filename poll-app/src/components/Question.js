@@ -35,7 +35,7 @@ const mapStateToProps = ({authedUser, users, questions}, {id}) => {
 
     return {
         authedUser,
-        question
+        question,
     };
 };
 

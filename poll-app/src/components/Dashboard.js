@@ -18,7 +18,6 @@ const Dashboard = (props) => {
                 {unanswered.map((id)=>(
                     <li key={id}>
                         <Question id={id}/>
-
                     </li>
                 ))}
             </ul>

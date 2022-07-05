@@ -46,6 +46,7 @@ const QuestionPage = (props) => {
 
         navigate("/");
     }
+    console.log(props)
 
     return (
         <div>
