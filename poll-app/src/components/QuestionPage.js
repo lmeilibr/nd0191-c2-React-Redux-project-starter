@@ -46,7 +46,11 @@ const QuestionPage = (props) => {
 
         navigate("/");
     }
-    console.log(props)
+
+    // Disable button if user already answered question
+    const qid = props.question.id
+    const answers = Object.keys(props.users[props.authedUser].answers)
+    const disable = answers.includes(qid)
 
     return (
         <div>
@@ -55,11 +59,11 @@ const QuestionPage = (props) => {
             <div>{props.question.author}</div>
             <div>
                 <div>{props.question.optionOne.text}</div>
-                <button onClick={handleFirstVote}>Click</button>
+                <button disabled={disable} onClick={handleFirstVote}>Click</button>
             </div>
             <div>
                 <div>{props.question.optionTwo.text}</div>
-                <button onClick={handleSecondVote}>Click</button>
+                <button disabled={disable} onClick={handleSecondVote}>Click</button>
             </div>
         </div>
     )
@@ -71,6 +75,7 @@ const mapStateToProps = ({authedUser, questions, users}, props) => {
     return {
         question: questions[question_id],
         authedUser,
+        users,
     }
 }
 
