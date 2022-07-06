@@ -19,16 +19,12 @@ function App(props) {
         <>
             <LoadingBar/>
             <div className="container">
-                {props.loading === true ? null : (
+                {props.loading === true ? <Login/> : (
                     <Routes>
                         <Route
                             exact
                             path="/"
                             element={<Dashboard/>}
-                        />
-                        <Route exact
-                               path="/login"
-                               element={<Login/>}
                         />
                         <Route exact
                                path="/add"
