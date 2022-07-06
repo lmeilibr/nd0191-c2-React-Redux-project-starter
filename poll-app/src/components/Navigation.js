@@ -12,6 +12,7 @@ function Navigation(props) {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/leaderboard">Leaderboard</Link></li>
                 <li><Link to="/add">New</Link></li>
+                <li><img src={props.users[props.authedUser].avatarURL} alt="avatar" width={50}/></li>
                 <li>{props.authedUser}</li>
                 <li onClick={handleLogout}><Link to="/">Logout</Link></li>
             </ul>
@@ -19,9 +20,10 @@ function Navigation(props) {
     )
 }
 
-const mapStateToProps = ({authedUser}) => (
+const mapStateToProps = ({authedUser, users}) => (
     {
         authedUser,
+        users,
     }
 )
 

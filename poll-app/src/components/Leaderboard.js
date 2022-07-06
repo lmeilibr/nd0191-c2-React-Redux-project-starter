@@ -17,7 +17,7 @@ const Leaderboard = (props) => {
                 <tbody>
                 {props.usersKeys.map((user) => (
                     <tr key={props.users[user].name}>
-                        <td>{props.users[user].name}</td>
+                        <td><img src={props.users[user].avatarURL} alt="avatar" width={75}/>{props.users[user].name}</td>
                         <td>{Object.keys(props.users[user].answers).length}</td>
                         <td>{props.users[user].questions.length}</td>
                     </tr>
@@ -28,10 +28,11 @@ const Leaderboard = (props) => {
     )
 }
 
-const mapStateToProps = ({users, questions}) => ({
+const mapStateToProps = ({users, questions, authedUser}) => ({
     // usersKeys: Object.keys(users),
     questions,
     users,
+    authedUser,
     usersKeys: Object.keys(users).sort(
         (a, b) => {
             return (Object.keys(users[b].answers).length + users[b].questions.length) - (Object.keys(users[a].answers).length + users[a].questions.length)
