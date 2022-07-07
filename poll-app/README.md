@@ -1,3 +1,14 @@
+# Login into the Application
+Choose one of the users below, with the corresponding password:
+
+User | Password
+----|------
+sarahedo | password123
+tylermcginnis|abc321
+mtsamis|xyz123
+zoshikanlu|pass246
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
