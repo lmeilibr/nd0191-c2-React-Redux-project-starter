@@ -1,9 +1,9 @@
-import Navigation from "./Navigation";
+import CoreNav from "./CoreNav";
 
 const NotFound = () => {
     return (
         <>
-            <Navigation/>
+            <CoreNav/>
             <h1>404 - Page Not Found</h1>
         </>
     )
