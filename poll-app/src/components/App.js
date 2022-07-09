@@ -9,6 +9,7 @@ import {useEffect} from "react";
 import {handleInitialData} from "../actions/shared";
 import {connect} from "react-redux";
 import LoadingBar from "react-redux-loading-bar";
+import NotFound from "./NotFound";
 
 function App(props) {
     useEffect(() => {
@@ -21,6 +22,10 @@ function App(props) {
             <div className="container">
                 {props.loading === true ? <Login/> : (
                     <Routes>
+                        <Route
+                            path="*"
+                            element={<NotFound/>}
+                        />
                         <Route
                             exact
                             path="/"
