@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import Navigation from "./Navigation";
 import {handleAddAnswer} from "../actions/questions";
 import {addUserAnswer} from "../actions/users";
+import NotFound from "./NotFound";
 
 const withRouter = (Component) => {
     const ComponentWithRouterProp = (props) => {
@@ -48,6 +49,8 @@ const QuestionPage = (props) => {
     }
 
     // Disable button if user already answered question
+    if(!props.question)
+        return <NotFound to='/404' />
     const qid = props.question.id
     const answers = Object.keys(props.users[props.authedUser].answers)
     const disable = answers.includes(qid)

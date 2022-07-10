@@ -38,6 +38,7 @@ const NewQuestion = (props) => {
 
         props.dispatch(handleAddQuestion(info));
 
+
         setFirst("");
         setSecond("");
 
@@ -53,11 +54,11 @@ const NewQuestion = (props) => {
             <form onSubmit={handleSubmit}>
                 <div>
                 <label htmlFor="first">First Option</label>
-                    <input type="text" onChange={handleFirst}/>
+                    <input type="text" onChange={handleFirst} required/>
                 </div>
                 <div>
                     <label htmlFor="second">Second Option</label>
-                    <input type="text" onChange={handleSecond}/>
+                    <input type="text" onChange={handleSecond} required/>
                 </div>
                 <button type="submit">Submit</button>
             </form>
