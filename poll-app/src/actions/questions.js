@@ -45,9 +45,9 @@ export function addQuestion(question) {
     };
 }
 
-export function addAnswer(answer) {
+export function addAnswer(info) {
     return {
         type: ADD_ANSWER,
-        answer,
+        info,
     };
 }
