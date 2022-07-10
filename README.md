@@ -5,7 +5,7 @@ Once in the cloned repo, enter into the ```poll-app``` directory with the commna
 
 To install the app dependecies, run the commnad ```npm install```
 
-To start the app, run the command ```nmp start```, open your browser and go to [http://localhost:3000](http://localhost:3000) to view it..
+To start the app, run the command ```npm start```, open your browser and go to [http://localhost:3000](http://localhost:3000) to view it..
 
 # Using the Application
 ## Login into the Application
