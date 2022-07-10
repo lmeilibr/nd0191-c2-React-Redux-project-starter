@@ -16,7 +16,7 @@ const Dashboard = (props) => {
     return (
         <>
             <Navigation/>
-            <h1>Dashboard Page</h1>
+            <h1 data-testid="dash-page">Dashboard Page</h1>
             <h2>Unanswered</h2>
             <ul>
                 {unanswered.map((id) => (

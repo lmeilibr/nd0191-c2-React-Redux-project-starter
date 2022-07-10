@@ -20,10 +20,10 @@ function Login(props) {
             <img className="loginimage" src="/employeePollLogo.png" alt="AAA" width="30%"/>
             <form onSubmit={handleLogin}>
                 <label htmlFor="User">Username</label>
-                <input type="text" name="user" placeholder="Enter Username" required/>
+                <input data-testid="userinput" type="text" name="user" placeholder="Enter Username" required/>
                 <label htmlFor="pws">Password</label>
-                <input type="password" name='password' placeholder="Enter Password" required/>
-                <button type="submit">Login</button>
+                <input data-testid="pwdinput" type="password" name='password' placeholder="Enter Password" required/>
+                <button data-testid="btn-submit" type="submit">Login</button>
             </form>
             </div>
         </>
